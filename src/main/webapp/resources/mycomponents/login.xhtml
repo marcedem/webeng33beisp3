@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+
+    <composite:interface>
+        <composite:attribute name="usernameLabel" />
+        <composite:attribute name="usernameValue" />
+        <composite:attribute name="passLabel" />
+        <composite:attribute name="passValue" />
+        <composite:attribute name="buttonLabel" />
+        <composite:attribute name="buttonAction"
+                             method-signature="java.lang.String login()" />
+    </composite:interface>
+
+    <composite:implementation>
+        <h:form id="form">
+            <div class="formblock">
+                <fieldset>
+                    <div>
+                        <h:outputLabel value="#{cc.attrs.usernameLabel}" for="username" />
+                        <h:inputText id="username" value="#{cc.attrs.usernameValue}"
+                                     label="#{cc.attrs.usernameLabel}" />
+                        <h:message for="username" />
+                    </div>
+                    <div>
+                        <h:outputLabel value="#{cc.attrs.passLabel}" for="pass" />
+                        <h:inputSecret id="pass" value="#{cc.attrs.passValue}"
+                                       label="#{cc.attrs.passLabel}" />
+                        <h:message for="pass" />
+                    </div>
+                </fieldset>
+            </div>
+
+            <div id="buttons">
+                <h:commandButton id="login" value="#{cc.attrs.buttonLabel}"
+                                 action="#{cc.attrs.buttonAction}" accesskey="l" />
+            </div>
+        </h:form>
+    </composite:implementation>
+</html>

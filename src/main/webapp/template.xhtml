@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>#{msg.title}</title>
+
+	<meta http-equiv="Content-Type"	content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="description" content="Formel 0" />
+	<meta name="keywords" content="Formel 0 Spiel" />
+	<meta name="language" content="de-AT" />
+        <link href="resources/styles/screen.css" rel="stylesheet" type="text/css" />
+	
+</h:head>
+
+<h:body>
+	<div id="wrapper">
+		<div id="header">
+			<ui:insert name="header">
+				<div id="teaser"></div>
+				<div id="logo"></div>
+				<h1>
+					<h:outputText value="#{msg.header_top}" />
+				</h1>
+			</ui:insert>
+		</div>
+ 
+		<ul class="accessibility">
+			<ui:insert name="access" />
+		</ul>
+
+		<div id="body">
+			<div id="navigation">
+				<ui:insert name="navigation" />
+			</div>
+			<hr class="accessibility" />
+			<div id="main">
+				<ui:insert name="main" />
+			</div>
+		</div>
+
+		<div id="footer">
+			<ui:insert name="footer">
+				<p>
+					<h:outputText value="#{msg.footer_copyright}" />
+				</p>
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>
