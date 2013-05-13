@@ -42,6 +42,8 @@ public class Game {
     
     private int lastRoll = 0;
     
+    private int lastCompRoll = 0;
+    
     /**
      * Dice that is used in this game
      */
@@ -130,6 +132,10 @@ public class Game {
         int score = dice.roll();
 
         this.lastRoll = score;
+        
+        if (player.getName().equals(computer.getName())) {
+            this.lastCompRoll = score;
+        }
         
         int position = player.getPosition();
 
@@ -245,5 +251,12 @@ public class Game {
      */
     public int getLastRoll() {
         return lastRoll;
+    }
+
+    /**
+     * @return the lastCompRoll
+     */
+    public int getLastCompRoll() {
+        return lastCompRoll;
     }
 }
