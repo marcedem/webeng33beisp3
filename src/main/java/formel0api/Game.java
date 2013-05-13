@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import beans.User;
+import javax.faces.context.FacesContext;
 
 /**
  * Class representing a Formel 0 game
@@ -26,7 +27,6 @@ public class Game {
     
     @ManagedProperty(value = "#{user}")
     private User user;
-    
     /**
      * User playing the game
      */
@@ -35,6 +35,9 @@ public class Game {
      * Computer opponent
      */
     private Player computer;
+    
+    private Player currentplayer;
+    
     /**
      * Dice that is used in this game
      */
@@ -54,14 +57,33 @@ public class Game {
      */
     private long spenttime;
 
+    public Game() {
+        if (this.user == null) {
+            this.user = (User) FacesContext.getCurrentInstance()
+                    .getExternalContext().getSessionMap().get("user");
+        }
+
+        this.init();
+    }
+
+    private void init() {
+        
+        
+        this.player = new Player(getUser().getUsername());
+        this.computer = new Player("Computer");
+    
+        this.setCurrentplayer(this.player);
+             
+    }
+
     /**
      * Constructs a new {@link Game}
      */
-    public Game(Player player, Player computer) {
+   /* public Game(Player player, Player computer) {
         this.player = player;
         this.computer = computer;
     }
-
+*/
     /**
      * Specifies whether this game is over or not
      *
@@ -84,6 +106,10 @@ public class Game {
         return spenttime;
     }
 
+    public void rollthedice() {
+        this.rollthedice(getCurrentplayer());
+    }
+    
     /**
      * Rolls the dice for the player and updates the position of the player's
      * car according to the score
@@ -122,6 +148,12 @@ public class Game {
             gameOver = true;
         }
 
+        if (this.getCurrentplayer().getName().equals(this.player.getName())) {
+            this.setCurrentplayer(this.computer);
+        } else {
+            this.setCurrentplayer(this.player);
+        }
+        
         return score;
     }
 
@@ -156,5 +188,33 @@ public class Game {
      */
     public Player getComputer() {
         return computer;
+    }
+
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     * @return the currentplayer
+     */
+    public Player getCurrentplayer() {
+        return currentplayer;
+    }
+
+    /**
+     * @param currentplayer the currentplayer to set
+     */
+    public void setCurrentplayer(Player currentplayer) {
+        this.currentplayer = currentplayer;
     }
 }
