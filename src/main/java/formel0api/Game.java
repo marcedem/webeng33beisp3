@@ -156,11 +156,11 @@ public class Game {
 
         if (this.getCurrentplayer().getName().equals(this.player.getName())) {
             this.setCurrentplayer(this.computer);
+            this.rollthedice(this.computer);
         } else {
             this.setCurrentplayer(this.player);
+            this.round++;
         }
-        
-        this.round++;
         
         return score;
     }

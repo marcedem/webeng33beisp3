@@ -36,11 +36,11 @@
                                 <tr><th id="leaderLabel" class="label">#{msg.table_leader}</th>
                                     <td id="leader" class="data">#{game.leader.name}</td></tr>
                                 <tr><th id="roundLabel" class="label">#{msg.table_round}</th>
-                                    <td id="round" class="data"></td></tr>
+                                    <td id="round" class="data"></td>#{game.round}</tr>
                                 <tr><th id="timeLabel" class="label">#{msg.table_time}</th>
                                     <td id="time" class="data">#{game.spentTime}</td></tr>
-                                <tr><th id="computerScoreLabel" class="label">#{msg.table_dice}<em>#{game.computer.name}</em></th>
-                                    <td id="computerScore" class="data"></td></tr>
+                                <tr><th id="computerScoreLabel" class="label">#{msg.table_dice} <em>#{game.computer.name}</em></th>
+                                    <td id="computerScore" class="data">#{game.lastRoll}</td></tr>
                             </table>  
                             <h2>#{msg.table_player}</h2>
                             <table summary="Diese Tabelle listet die Namen der Spieler auf">
@@ -50,37 +50,41 @@
                                     <td id="player2Name" class="data">#{game.computer.name}</td></tr>
                             </table>    	  
                         </div>
-                        <div id="field" class="field">
-                            <h2 class="accessibility">Spielbereich</h2>
-                            <ol id="road">
-                                <li id="start_road">
-                                    <span class="accessibility">Startfeld</span>
-                                </li>
-                                <li class="empty_road" id="road_1">
-                                    <span class="accessibility">Feld 2</span>
-                                </li>
-                                <li class="oil_road" id="road_2">
-                                    <span class="accessibility">Feld 3</span>
-                                    <span id="player1">
-                                        <span class="accessibility"><em>Spieler 1</em></span>
-                                    </span>
-                                </li>
-                                <li class="empty_road" id="road_3">
-                                    <span class="accessibility">Feld 4</span>
-                                </li>
-                                <li class="empty_road" id="road_4">
-                                    <span class="accessibility">Feld 5</span>
-                                    <span id="player2">
-                                        <span class="accessibility"><em>Spieler 2</em></span>
-                                    </span>
-                                </li>
-                                <li class="oil_road" id="road_5">
-                                    <span class="accessibility">Feld 6</span>
-                                </li>
-                                <li id="finish_road">
-                                    <span class="accessibility">Zielfeld</span>
-                                </li>
-                            </ol>
+                    </h:panelGroup>
+                    <h:panelGroup id="play_area">    
+                    <div id="field" class="field">
+                            
+                                <h2 class="accessibility">Spielbereich</h2>
+                                <ol id="road">
+                                    <li id="start_road">
+                                        <span class="accessibility">Startfeld</span>
+                                    </li>
+                                    <li class="empty_road" id="road_1">
+                                        <span class="accessibility">Feld 2</span>
+                                    </li>
+                                    <li class="oil_road" id="road_2">
+                                        <span class="accessibility">Feld 3</span>
+                                        <span id="player1">
+                                            <span class="accessibility"><em>Spieler 1</em></span>
+                                        </span>
+                                    </li>
+                                    <li class="empty_road" id="road_3">
+                                        <span class="accessibility">Feld 4</span>
+                                    </li>
+                                    <li class="empty_road" id="road_4">
+                                        <span class="accessibility">Feld 5</span>
+                                        <span id="player2">
+                                            <span class="accessibility"><em>Spieler 2</em></span>
+                                        </span>
+                                    </li>
+                                    <li class="oil_road" id="road_5">
+                                        <span class="accessibility">Feld 6</span>
+                                    </li>
+                                    <li id="finish_road">
+                                        <span class="accessibility">Zielfeld</span>
+                                    </li>
+                                </ol>
+                            
                         </div>
                     </h:panelGroup>
                     <div id="player" class="player">
@@ -94,7 +98,7 @@
                                                  alt="#{msg.tabel_dice} #{game.lastRoll}"
                                                  image="../resources/img/wuerfel#{game.lastRoll}.png">
                                     <f:ajax execute="dice"
-                                            render="tBR :info_area"></f:ajax>
+                                            render="tBR :info_area :play_area"></f:ajax>
                                 </h:commandButton>
                             </h:panelGroup>
                         </h:form>
