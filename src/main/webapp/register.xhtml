@@ -82,6 +82,14 @@
                     </h:inputSecret>
                     <h:message for="password" />           
                     <br />
+                    <h:selectBooleanCheckbox id="showterms"
+					valueChangeListener="#{register.showChanged}">
+					<f:ajax event="click" render="toBeRendered" />
+				</h:selectBooleanCheckbox>
+                    				<h:panelGroup id="toBeRendered">
+                                                    <h:outputText value="#{msg.register_terms}"/>
+                                                </h:panelGroup>
+                    <p/>
                     <h:commandButton id="register"
                                      value="#{msg.reg}"
                                      action="#{register.register}" accesskey="r" />
