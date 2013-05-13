@@ -1,70 +1,62 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:mc="http://java.sun.com/jsf/composite/mycomponents">
-        
-         <h:head>
-        <title xml:lang="de">Formel 0 - Registrieren</title>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="resources/styles/screen.css" />
-        <script src="js/jquery.js" type="text/javascript"></script>
-    </h:head>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:mc="http://java.sun.com/jsf/composite/mycomponents">
+
     <h:body>
-        <div id="container">
-            <div id="bordercontainer">
-                <div id="header">
-                    <div id="header_left"><h1 class="accessibility">Formel 0</h1></div>
-                    <div id="header_right"></div>
-                </div>
-                <div id="navigation">
-                    <h2 class="accessibility">Navigation</h2>
-                    <ul title="Navigation">
-                        <li><a id="backToLogin" href="#" tabindex="1">Einloggen</a></li>
-                    </ul>
-                </div>
-                <div id="content">
-                    <h2><h:outputText value="#{msg.reg}"/></h2>
-                    <p><h:outputText value="#{msg.reginfo}"/></p>
+        <ui:composition template="./WEB-INF/includes/template.xhtml">
 
-                    
-                    <h:form id="form">
-                        <h3><h:outputText value="#{msg.pers}"/></h3><p/>
+            <ui:define name="navigation">
+                <ul>
+                    <li><h:link outcome="index" value="#{msg.login}" /></li>
+                </ul>
+            </ui:define>
 
-                        
-                        <h:outputLabel value="#{msg.firstname}" for="firstname"/>
-                        <h:inputText id="firstname" value="#{register.player.firstname}"/><br />
-                        <h:outputLabel value="#{msg.lastname}" for="lastname"/>
-                        <h:inputText id="lastname" value="#{register.player.lastname}"/><br />
-                        <h:outputLabel value="#{msg.geb}" for="birthday"/>
-                        <h:inputText id="birthday" value="#{register.player.birthday}"/><br />
-                        <h:outputLabel value="#{msg.sex}" for="sex"/>                        
-                        <h:selectOneMenu value="#{register.player.sex}">
-                            <f:selectItem itemValue="#{msg.sexm}" itemLabel="#{msg.sexm}" />
+            <ui:define name="access">
+                <li><h:outputLink value="#navigation" accesskey="1">
+                        <h:outputText value="#{msg.accessibility_nav}" />
+                    </h:outputLink></li>
+                <li><h:outputLink value="#main" accesskey="0">
+                        <h:outputText value="#{msg.accessibility_main}" />
+                    </h:outputLink></li>
+            </ui:define>
+
+            <ui:define name="content">
+                <h2><h:outputText value="#{msg.reg}"/></h2>
+                <p><h:outputText value="#{msg.reginfo}"/></p>
+
+
+                <h:form id="form">
+                    <h3><h:outputText value="#{msg.pers}"/></h3><p/>
+
+
+                    <h:outputLabel value="#{msg.firstname}" for="firstname"/>
+                    <h:inputText id="firstname" value="#{register.player.firstname}"/><br />
+                    <h:outputLabel value="#{msg.lastname}" for="lastname"/>
+                    <h:inputText id="lastname" value="#{register.player.lastname}"/><br />
+                    <h:outputLabel value="#{msg.geb}" for="birthday"/>
+                    <h:inputText id="birthday" value="#{register.player.birthday}"/><br />
+                    <h:outputLabel value="#{msg.sex}" for="sex"/>                        
+                    <h:selectOneMenu value="#{register.player.sex}">
+                        <f:selectItem itemValue="#{msg.sexm}" itemLabel="#{msg.sexm}" />
                         <f:selectItem itemValue="#{msg.sexw}" itemLabel="#{msg.sexw}" />
-                        </h:selectOneMenu><p/>
- 
-                        <h3><h:outputText value="#{msg.log}"/></h3><p/>
-                        <h:outputLabel value="#{msg.username}" for="username"/>
-                        <h:inputText id="username" value="#{register.player.username}"/><br />
-                        <h:outputLabel value="#{msg.password}" for="password"/>
-                        <h:inputText id="password" value="#{register.player.password}"/><br />
-                        
-                        <h:commandButton id="register" value="register" action="/register.xhtml"/>
-                        
-                    </h:form>
-                    
-                </div>
-            </div>
-            <div id="footer">
-                &copy; 2013 Formel 0
-            </div>
-        </div>
+                    </h:selectOneMenu><p/>
 
-     
+                    <h3><h:outputText value="#{msg.log}"/></h3><p/>
+                    <h:outputLabel value="#{msg.username}" for="username"/>
+                    <h:inputText id="username" value="#{register.player.username}"/><br />
+                    <h:outputLabel value="#{msg.password}" for="password"/>
+                    <h:inputText id="password" value="#{register.player.password}"/><br />
 
+                    <h:commandButton id="register" value="#{msg.reg}" action="/register.xhtml"/>
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
