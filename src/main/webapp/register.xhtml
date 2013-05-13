@@ -30,31 +30,44 @@
                 <p><h:outputText value="#{msg.reginfo}"/></p>
 
 
-                <h:form id="form">
-                    <h3><h:outputText value="#{msg.pers}"/></h3><p/>
+              <h:form id="form">
+                        <h3><h:outputText value="#{msg.pers}"/></h3><p/>
+                        <h:outputLabel value="#{msg.firstname}" for="firstname"/>
+                        <h:inputText id="firstname" value="#{register.player.firstname}">
+                        <f:validateRequired/>
+                        <f:validateLength minimum="3" maximum="8"/>
+                        <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>
+                        </h:inputText><br />
+                        <h:outputLabel value="#{msg.lastname}" for="lastname"/>
+                        <h:inputText id="lastname" value="#{register.player.lastname}">
+                        <f:validateRequired/>
+                        <f:validateLength minimum="3" maximum="8"/>
+                        <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>
+                        </h:inputText><br />
+                        <h:outputLabel value="#{msg.geb}" for="birthday"/>
+                        <h:inputText id="birthday" value="#{register.player.birthday}" required="true"
+                        validator="#{register.validateBirthday}">
 
-
-                    <h:outputLabel value="#{msg.firstname}" for="firstname"/>
-                    <h:inputText id="firstname" value="#{register.player.firstname}"/><br />
-                    <h:outputLabel value="#{msg.lastname}" for="lastname"/>
-                    <h:inputText id="lastname" value="#{register.player.lastname}"/><br />
-                    <h:outputLabel value="#{msg.geb}" for="birthday"/>
-                    <h:inputText id="birthday" value="#{register.player.birthday}"/><br />
-                    <h:outputLabel value="#{msg.sex}" for="sex"/>                        
-                    <h:selectOneMenu value="#{register.player.sex}">
-                        <f:selectItem itemValue="#{msg.sexm}" itemLabel="#{msg.sexm}" />
+                        </h:inputText><br />
+                        <h:outputLabel value="#{msg.sex}" for="sex"/>                        
+                        <h:selectOneMenu value="#{register.player.sex}">
+                            <f:selectItem itemValue="#{msg.sexm}" itemLabel="#{msg.sexm}" />
                         <f:selectItem itemValue="#{msg.sexw}" itemLabel="#{msg.sexw}" />
-                    </h:selectOneMenu><p/>
-
-                    <h3><h:outputText value="#{msg.log}"/></h3><p/>
-                    <h:outputLabel value="#{msg.username}" for="username"/>
-                    <h:inputText id="username" value="#{register.player.username}"/><br />
-                    <h:outputLabel value="#{msg.password}" for="password"/>
-                    <h:inputText id="password" value="#{register.player.password}"/><br />
-
-                    <h:commandButton id="register" value="#{msg.reg}" action="/register.xhtml"/>
-
-                </h:form>
+                        </h:selectOneMenu><p/>
+ 
+                        <h3><h:outputText value="#{msg.log}"/></h3><p/>
+                        <h:outputLabel value="#{msg.username}" for="username"/>
+                        <h:inputText id="username" value="#{register.player.username}" required="true" validator="#{register.validateBirthday}">
+                        </h:inputText> <br />
+                        <h:outputLabel value="#{msg.password}" for="password"/>
+                        <h:inputText id="password" value="#{register.player.password}">
+                        <f:validateLength minimum="3" maximum="8"/>
+                        <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>
+                        <br />
+                        </h:inputText>
+                        <h:commandButton id="register" value="register" action="/register.xhtml"/>
+                        
+                    </h:form>
 
             </ui:define>
         </ui:composition>
