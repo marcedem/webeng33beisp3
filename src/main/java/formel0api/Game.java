@@ -24,7 +24,7 @@ public class Game {
 
     private static final int LAST_FIELD = 6;
     
-    @ManagedProperty(value = "#{player}")
+    @ManagedProperty(value = "#{user}")
     private User user;
     
     /**
