@@ -77,7 +77,7 @@
                     <h:outputLabel value="#{msg.password}" for="password"/>
                     <h:inputSecret id="password" value="#{register.user.password}"
                                    label="#{msg.password}" required="true">
-                        <f:validateLength minimum="3" />
+                        <f:validateLength minimum="2" />
                         <f:validateRegex pattern="^.*(?=.*\d)(?=.*[a-zA-Z]).*$" />
                     </h:inputSecret>
                     <h:message for="password" />           

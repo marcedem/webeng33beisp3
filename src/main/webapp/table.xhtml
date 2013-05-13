@@ -79,13 +79,20 @@
                             <li id="finish_road">
                                 <span class="accessibility">Zielfeld</span>
                             </li>
-                        </ol>
+                          </ol>
                     </div>
                     <div id="player" class="player">
-                        <h2 class="accessibility">W&uuml;rfelbereich</h2>
-                        <span class="accessibility">An der Reihe ist</span><div id="currentPlayerName">Super Mario</div>
-                        <input id="dice" type="image" tabindex="4" src="img/wuerfel1.png" title="W&uuml;rfel mit einer Eins" alt="W&uuml;rfel mit einer Eins" />
-                    </div>
+                        <h2 class="accessibility">#{msg.dice_tabel_dice}</h2>
+                        <span class="accessibility">#{msg.dice_table_turn}</span><div id="currentPlayerName">#{game.currentplayer}</div>
+                           <h:commandButton id="dice" action="#{game.rollthedice(player)}"
+                                            title="#{msg.dice_tabel_dice}  #{game.lastRoll}"
+							alt="#{msg.tabel_dice} #{game.lastRoll}"
+							image="../resources/img/wuerfel#{game.lastRoll}.png">
+							<f:ajax execute="dice"
+								render="main-area"></f:ajax>
+						</h:commandButton>
+
+                                      </div>
                 </div>
             </div>
             <div id="footer">
