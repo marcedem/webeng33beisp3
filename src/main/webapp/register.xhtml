@@ -31,46 +31,32 @@
                     <p><h:outputText value="#{msg.reginfo}"/></p>
 
                     
+                    <h:form id="form">
+                        <h3><h:outputText value="#{msg.pers}"/></h3><p/>
+
+                        
+                        <h:outputLabel value="#{msg.firstname}" for="firstname"/>
+                        <h:inputText id="firstname" value="#{register.player.firstname}"/><br />
+                        <h:outputLabel value="#{msg.lastname}" for="lastname"/>
+                        <h:inputText id="lastname" value="#{register.player.lastname}"/><br />
+                        <h:outputLabel value="#{msg.geb}" for="birthday"/>
+                        <h:inputText id="birthday" value="#{register.player.birthday}"/><br />
+                        <h:outputLabel value="#{msg.sex}" for="sex"/>                        
+                        <h:selectOneMenu value="#{register.player.sex}">
+                            <f:selectItem itemValue="#{msg.sexm}" itemLabel="#{msg.sexm}" />
+                        <f:selectItem itemValue="#{msg.sexw}" itemLabel="#{msg.sexw}" />
+                        </h:selectOneMenu><p/>
+ 
+                        <h3><h:outputText value="#{msg.log}"/></h3><p/>
+                        <h:outputLabel value="#{msg.username}" for="username"/>
+                        <h:inputText id="username" value="#{register.player.username}"/><br />
+                        <h:outputLabel value="#{msg.password}" for="password"/>
+                        <h:inputText id="password" value="#{register.player.password}"/><br />
+                        
+                        <h:commandButton id="register" value="register" action="/register.xhtml"/>
+                        
+                    </h:form>
                     
-                    <form id="form" action="#">
-                        <h3><h:outputText value="#{msg.pers}"/></h3>
-
-                        <fieldset>
-                            <label for="firstname" class="registerform">Vorname</label>
-                            <input type="text" id="firstname" name="firstname" tabindex="3" /><br />
-
-                            <label for="lastname" class="registerform">Nachname</label>
-                            <input type="text" id="lastname" name="lastname" tabindex="4" /><br />
-
-                            <label for="birthday" class="registerform">Geburtstag</label>
-                            <input type="text" id="birthday" name="birthday" tabindex="5" />
-                            <span id="msg_birthday" class="validation_error hide">Der Verwenden Sie bitte folgendes Datumsformat: dd.mm.yyyy (z.B. 24.12.2012).</span>
-                            <br />
-
-                            <label for="sex" class="registerform">Geschlecht</label>
-                            <select id="sex" name="sex" tabindex="6">
-                                <option value="f">weiblich</option>
-                                <option value="m">m&auml;nnlich</option>
-                            </select><br />
-                        </fieldset>
-
-                        <h3>Login Daten</h3>
-                        <fieldset>
-                            <label for="username" class="registerform">Benutzername</label>
-                            <input type="text" id="username" name="username" tabindex="7" />
-                            <span id="msg_username" class="validation_error hide">Der Benutzername muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</span>
-                            <br />
-
-                            <label for="password" class="registerform">Passwort</label>
-                            <input type="password" id="password" name="password" tabindex="8" />
-                            <span id="msg_password" class="validation_error hide">Das Passwort muss mindestens 4 Zeichen und darf maximal 8 Zeichen enthalten.</span>
-                            <br />
-                        </fieldset>
-
-                        <p>
-                            <input id="submit" type="submit" value="Registrieren" tabindex="9" />
-                        </p>
-                    </form>
                 </div>
             </div>
             <div id="footer">
