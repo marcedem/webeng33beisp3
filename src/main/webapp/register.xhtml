@@ -61,19 +61,27 @@
                     <h:selectOneMenu id="sex" value="">
                         <f:selectItem itemValue="male" itemLabel="#{msg.sexm}" />
                         <f:selectItem itemValue="female" itemLabel="#{msg.sexw}" />
-                    </h:selectOneMenu><p/>
+                    </h:selectOneMenu>
+                                        <h:message for="sex" />                   
+                    <p/>
                     <h3><h:outputText value="#{msg.log}"/></h3><p/>
                     <h:outputLabel value="#{msg.username}" for="username"/>
-                    <h:inputText id="username" value="#{register.player.username}" required="true" validator="#{register.validateUsername}">
-                    </h:inputText> <br />
-                    <h:outputLabel value="#{msg.password}" for="password"/>
-                    <h:inputText id="password" value="#{register.player.password}">
-                        <f:validateLength minimum="3" maximum="8"/>
-                        <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>
-                    </h:inputText>
-                    <h:message for="sex" />                   
+                    <h:inputText id="username" value="#{register.player.username}" 
+                                 label="#{msg.username}" required="true" 
+                                 validator="#{register.validateUsername}">
+                        <f:validateLength minimum="3" />
+            <f:validateRegex pattern="[a-zA-Z]*" />
+                    </h:inputText> 
+                    <h:message for="username" />
                     <br />
-
+                    <h:outputLabel value="#{msg.password}" for="password"/>
+                    <h:inputSecret id="password" value="#{register.player.password}"
+                                   label="#{msg.password}" required="true">
+                      <f:validateLength minimum="3" />
+            <f:validateRegex pattern="^.*(?=.*\d)(?=.*[a-zA-Z]).*$" />
+                    </h:inputSecret>
+			<h:message for="password" />           
+                    <br />
                     <h:commandButton id="register"
                                      value="#{msg.reg}"
                                      action="#{register.register}" accesskey="r" />
