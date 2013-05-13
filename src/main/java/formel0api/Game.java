@@ -38,6 +38,10 @@ public class Game {
     
     private Player currentplayer;
     
+    private int round = 1;
+    
+    private int lastRoll = 0;
+    
     /**
      * Dice that is used in this game
      */
@@ -125,6 +129,8 @@ public class Game {
 
         int score = dice.roll();
 
+        this.lastRoll = score;
+        
         int position = player.getPosition();
 
         /**
@@ -153,6 +159,8 @@ public class Game {
         } else {
             this.setCurrentplayer(this.player);
         }
+        
+        this.round++;
         
         return score;
     }
@@ -216,5 +224,26 @@ public class Game {
      */
     public void setCurrentplayer(Player currentplayer) {
         this.currentplayer = currentplayer;
+    }
+
+    /**
+     * @return the round
+     */
+    public int getRound() {
+        return round;
+    }
+
+    /**
+     * @param round the round to set
+     */
+    public void setRound(int round) {
+        this.round = round;
+    }
+
+    /**
+     * @return the lastRoll
+     */
+    public int getLastRoll() {
+        return lastRoll;
     }
 }
