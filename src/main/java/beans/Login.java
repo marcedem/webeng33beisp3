@@ -38,6 +38,7 @@ public class Login {
 
                     this.username = "";
                     this.password = "";
+                    System.out.println("Successful login test");
                     return "/table.xhtml";
                 } else {
                     this.username = "";
