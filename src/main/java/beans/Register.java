@@ -36,8 +36,8 @@ public class Register {
     public void validateBirthday(FacesContext ctx, UIComponent component,
             Object value) throws ValidatorException {
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-        //String birthday = format.format((Date) value);
-        String birthday = (String) value;
+        String birthday = format.format((Date) value);
+       // String birthday = (String) value;
         System.out.println("BIRTHDAY TEST" + birthday);
         if (birthday.length() != 10) {
             FacesMessage msg = new FacesMessage(

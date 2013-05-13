@@ -44,7 +44,7 @@
                     <h:inputText id="lastname" value="#{register.player.lastname}"
                                  label="#{msg.lastname}" required="true">
                         <f:validateLength minimum="3"/>
-                        <f:validateRegex pattern="[A-Z][a-zA-Z]*"/>
+                        <f:validateRegex pattern="[a-zA-Z]*"/>
                     </h:inputText>
                     <h:message for="lastname" />
                     <br />
