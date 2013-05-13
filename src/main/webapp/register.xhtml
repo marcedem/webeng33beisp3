@@ -36,8 +36,8 @@
                     <h:inputText id="firstname" value="#{register.player.firstname}"
                                  label="#{msg.firstname}" required="true"
                                  >
-                         <f:validateRegex pattern="[a-zA-Z]*" />
-                       <f:validateLength minimum="3" />
+                        <f:validateRegex pattern="[a-zA-Z]*" />
+                        <f:validateLength minimum="3" />
                     </h:inputText>
                     <h:message for="firstname" /><br />
                     <h:outputLabel value="#{msg.lastname}" for="lastname"/>
@@ -52,9 +52,9 @@
                     <h:inputText id="birthday" value="#{register.player.birthday}" 
                                  label="#{msg.geb}" required="true"
                                  validator="#{register.validateBirthday}">
-                    <f:convertDateTime type="date" />
+                        <f:convertDateTime type="date" />
                     </h:inputText>
-					<h:message for="birthday" />
+                    <h:message for="birthday" />
 
                     <br />
                     <h:outputLabel value="#{msg.sex}" for="sex"/>                        
@@ -62,7 +62,7 @@
                         <f:selectItem itemValue="male" itemLabel="#{msg.sexm}" />
                         <f:selectItem itemValue="female" itemLabel="#{msg.sexw}" />
                     </h:selectOneMenu>
-                                        <h:message for="sex" />                   
+                    <h:message for="sex" />                   
                     <p/>
                     <h3><h:outputText value="#{msg.log}"/></h3><p/>
                     <h:outputLabel value="#{msg.username}" for="username"/>
@@ -70,17 +70,17 @@
                                  label="#{msg.username}" required="true" 
                                  validator="#{register.validateUsername}">
                         <f:validateLength minimum="3" />
-            <f:validateRegex pattern="[a-zA-Z]*" />
+                        <f:validateRegex pattern="[a-zA-Z]*" />
                     </h:inputText> 
                     <h:message for="username" />
                     <br />
                     <h:outputLabel value="#{msg.password}" for="password"/>
                     <h:inputSecret id="password" value="#{register.player.password}"
                                    label="#{msg.password}" required="true">
-                      <f:validateLength minimum="3" />
-            <f:validateRegex pattern="^.*(?=.*\d)(?=.*[a-zA-Z]).*$" />
+                        <f:validateLength minimum="3" />
+                        <f:validateRegex pattern="^.*(?=.*\d)(?=.*[a-zA-Z]).*$" />
                     </h:inputSecret>
-			<h:message for="password" />           
+                    <h:message for="password" />           
                     <br />
                     <h:commandButton id="register"
                                      value="#{msg.reg}"
