@@ -18,37 +18,49 @@
     </h:head>
 
     <h:body>
-        <div id="wrapper">
-            <div id="header">
-                <ui:insert name="header">
-                    <div id="teaser"></div>
-                    <div id="logo"></div>
-                    <h1>
-                        <h:outputText value="#{msg.header}" />
-                    </h1>
-                </ui:insert>
-            </div>
+        <div id="container">
+            <div id="bordercontainer">
+                <div id="header">
+                    <ui:insert name="header">  
+                        <div id="header_left">
+                            <h1 class ="accessibility">
+                                <h:outputText value="#{msg.header}" />
+                            </h1>
+                        </div>
+                        <div id="header_right"></div>
+                    </ui:insert>
+                </div>
 
-            <ul class="accessibility">
-                <ui:insert name="access" />
-            </ul>
-
-            <div id="body">
                 <div id="navigation">
-                    <ui:insert name="navigation" />
+                    <ui:insert name="navigation">
+                        <h2 class="accessibility">
+                            <h:outputText value="#{accessibility_nav}" />
+                        </h2>
+                    </ui:insert>
                 </div>
-                <hr class="accessibility" />
-                <div id="main">
-                    <ui:insert name="main" />
+                <div id="content">
+                    <ui:insert name="content" />
                 </div>
-            </div>
 
-            <div id="footer">
-                <ui:insert name="footer">
-                    <p>
-                        <h:outputText value="#{msg.footer}" />
-                    </p>
-                </ui:insert>
+                <ul class="accessibility">
+                    <ui:insert name="access" />
+                </ul>
+
+                <div id="body">
+
+                    <hr class="accessibility" />
+                    <div id="main">
+                        <ui:insert name="main" />
+                    </div>
+                </div>
+
+                <div id="footer">
+                    <ui:insert name="footer">
+                        <p>
+                            <h:outputText value="#{msg.footer}" />
+                        </p>
+                    </ui:insert>
+                </div>
             </div>
         </div>
     </h:body>
