@@ -19,15 +19,15 @@ import javax.faces.validator.ValidatorException;
 @SessionScoped
 public class Register {
 
-    @ManagedProperty(value = "#{player}")
-    private Player player;
-    @ManagedProperty(value = "#{playerList}")
-    private PlayerList playerList;
+    @ManagedProperty(value = "#{user}")
+    private User user;
+    @ManagedProperty(value = "#{userList}")
+    private UserList userList;
     private boolean showTerms = false;
 
     public void validateUsername(FacesContext ctx, UIComponent component,
             Object value) throws ValidatorException {
-        if (this.playerList.getPlayerList().containsKey((String) value)) {
+        if (this.userList.getUserList().containsKey((String) value)) {
             FacesMessage msg = new FacesMessage("Username already exists");
             throw new ValidatorException(msg);
         }
@@ -70,13 +70,13 @@ public class Register {
     }
 
     public String register() {
-        System.out.println("name: " + this.player.getUsername() + " pw: "
-                + this.player.getPassword() + " first: " + this.player.getFirstname());
+        System.out.println("name: " + this.user.getUsername() + " pw: "
+                + this.user.getPassword() + " first: " + this.user.getFirstname());
 
 
-        this.playerList.getPlayerList()
-                .put(this.player.getUsername(), this.player);
-        this.player = new Player();
+        this.userList.getUserList()
+                .put(this.user.getUsername(), this.user);
+        this.user = new User();
         this.showTerms = false;
         return "/index.xhtml";
     }
@@ -92,29 +92,29 @@ public class Register {
     /**
      * @return the player
      */
-    public Player getPlayer() {
-        return player;
+    public User getUser() {
+        return user;
     }
 
     /**
      * @param player the player to set
      */
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
      * @return the playerList
      */
-    public PlayerList getPlayerList() {
-        return playerList;
+    public UserList getUserList() {
+        return userList;
     }
 
     /**
      * @param playerList the playerList to set
      */
-    public void setPlayerList(PlayerList playerList) {
-        this.playerList = playerList;
+    public void setUserList(UserList userList) {
+        this.userList = userList;
     }
 
     /**

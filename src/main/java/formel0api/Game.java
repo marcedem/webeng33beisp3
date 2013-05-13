@@ -10,14 +10,25 @@
  */
 package formel0api;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import beans.User;
+
 /**
  * Class representing a Formel 0 game
  */
+@ManagedBean
+@SessionScoped
 public class Game {
 
     private static final int LAST_FIELD = 6;
+    
+    @ManagedProperty(value = "#{player}")
+    private User user;
+    
     /**
-     * Player playing the game
+     * User playing the game
      */
     private Player player;
     /**
@@ -77,7 +88,7 @@ public class Game {
      * Rolls the dice for the player and updates the position of the player's
      * car according to the score
      *
-     * @param player Player who rolls the dice
+     * @param player User who rolls the dice
      * @return score
      */
     public int rollthedice(Player player) {

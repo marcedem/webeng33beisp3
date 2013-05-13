@@ -10,22 +10,22 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 @ApplicationScoped
-public class PlayerList {
+public class UserList {
     
-    private HashMap<String, Player> playerList = new HashMap<String, Player>();
+    private HashMap<String, User> userList = new HashMap<String, User>();
 
     /**
      * @return the playerList
      */
-    public HashMap<String, Player> getPlayerList() {
-        return playerList;
+    public HashMap<String, User> getUserList() {
+        return userList;
     }
 
     /**
      * @param playerList the playerList to set
      */
-    public void setPlayerList(HashMap<String, Player> playerList) {
-        this.playerList = playerList;
+    public void setUserList(HashMap<String, User> userList) {
+        this.userList = userList;
     }
     
     

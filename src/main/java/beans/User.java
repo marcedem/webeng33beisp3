@@ -8,9 +8,9 @@ import javax.faces.bean.SessionScoped;
  *
  * @author alex
  */
-@ManagedBean(name="player")
+@ManagedBean(name="user")
 @SessionScoped
-public class Player {
+public class User {
     
     private String firstname, lastname, sex, username, password;
     private Date birthday;

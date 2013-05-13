@@ -13,10 +13,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class Login {
 
-    @ManagedProperty(value = "#{player}")
-    private Player player;
-    @ManagedProperty(value = "#{playerList}")
-    private PlayerList playerList;
+    @ManagedProperty(value = "#{user}")
+    private User user;
+    @ManagedProperty(value = "#{userList}")
+    private UserList userList;
     private String username, password;
 
     
@@ -26,14 +26,14 @@ public class Login {
             this.password = "";
             return "/index.xhtml";
         } else {
-            if (!this.playerList.getPlayerList().containsKey(this.username)) {
+            if (!this.userList.getUserList().containsKey(this.username)) {
                 this.username = "";
                 this.password = "";
                 return "/index.xhtml";
             } else {
-                if (this.playerList.getPlayerList().get(this.username)
+                if (this.userList.getUserList().get(this.username)
                         .getPassword().equals(this.password)) {
-                    this.player = this.playerList.getPlayerList().get(
+                    this.user = this.userList.getUserList().get(
                             this.username);
 
                     this.username = "";
@@ -52,29 +52,29 @@ public class Login {
     /**
      * @return the player
      */
-    public Player getPlayer() {
-        return player;
+    public User getUser() {
+        return user;
     }
 
     /**
      * @param player the player to set
      */
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
-     * @return the playerList
+     * @return the userList
      */
-    public PlayerList getPlayerList() {
-        return playerList;
+    public UserList getUserList() {
+        return userList;
     }
 
     /**
-     * @param playerList the playerList to set
+     * @param userList the playerList to set
      */
-    public void setPlayerList(PlayerList playerList) {
-        this.playerList = playerList;
+    public void setUserList(UserList userList) {
+        this.userList = userList;
     }
 
     /**
